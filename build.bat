@@ -1,0 +1,1 @@
+mvn clean package > maven_build.log
