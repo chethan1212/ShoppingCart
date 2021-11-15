@@ -35,7 +35,9 @@ public class ShoppingCart {
 			shoppingItems = new ArrayList<ShoppingItem>();
 		}
 		addToCart(shoppingItems, itemsToAdd);
-		totalPrice = totalPrice + (itemsToAdd.getProduct().getPrice() * itemsToAdd.getCount());
+		float newItemPrice = itemsToAdd.getProduct().getPrice() * itemsToAdd.getCount();
+		newItemPrice = newItemPrice + ( newItemPrice * 0.125f);
+		totalPrice = totalPrice + newItemPrice;
 		totalPrice = new BigDecimal(totalPrice).setScale(2, RoundingMode.HALF_UP).floatValue();
 		return new ActionResult(Constants.SUCCESS_STATUS, null);
 	}
